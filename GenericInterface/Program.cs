@@ -8,7 +8,7 @@
             var trivString = new Simple<string>();
             Console.WriteLine($"{trivInt.ReturnIt(5)}");
             Console.WriteLine($"{trivString.ReturnIt("Hi There.")}");
-            Console.WriteLine("----------------------------------");
+            Console.WriteLine("++++++++++++++++++++++++++++++++++");
             Simple trivial = new Simple();
             Console.WriteLine($"{trivial.ReturnIt(5)}");
             Console.WriteLine($"{trivial.ReturnIt("Hi There.")}");
