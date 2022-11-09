@@ -4,19 +4,28 @@
     {
         static void Main(string[] args)
         {
-            Animal a1 = new Animal();
-            Animal a2 = new Dog();
-            Console.WriteLine($"Number of dog legs:{a2.NumberOfLegs}");
+            Factory<Dog> dogMaker = MakeDog;
+            Factory<Animal> animalMaker = dogMaker;
+            Console.WriteLine(animalMaker().Legs.ToString());
+        }
+        static Dog MakeDog()
+        {
+            return new Dog();
         }
     }
     class Animal
     {
-        public int NumberOfLegs = 4;
+        public int Legs = 4;
     }
     class Dog : Animal
     {
 
     }
+    delegate T Factory<out T>();
+
+
+
+
     /// <summary>
     /// 关于协变和逆变的小知识
     /// </summary>
