@@ -36,9 +36,15 @@ namespace DownloadWebsites
         }
         private async Task DownloadWebsitesAsync()
         {
+            List<Task<string>> downloadWebSiteTasks = new List<Task<string>>();
+
             foreach (var site in Contents.WebSites)
             {
-                var result = await Task.Run(()=> DownloadWebsiteSync(site));
+                downloadWebSiteTasks.Add(Task.Run(()=> DownloadWebsiteSync(site)));
+            }
+            var results = await Task.WhenAll(downloadWebSiteTasks);
+            foreach (var result in results)
+            {
                 ReportResult(result);
             }
         }
