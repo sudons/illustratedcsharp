@@ -40,7 +40,7 @@ namespace DownloadWebsites
 
             foreach (var site in Contents.WebSites)
             {
-                downloadWebSiteTasks.Add(Task.Run(()=> DownloadWebsiteSync(site)));
+                downloadWebSiteTasks.Add(DownloadWebsiteAsync(site));
             }
             var results = await Task.WhenAll(downloadWebSiteTasks);
             foreach (var result in results)
@@ -53,6 +53,13 @@ namespace DownloadWebsites
         {
             var response= httpClient.GetAsync(url).GetAwaiter().GetResult();
             var responsePlayloadBytes = response.Content.ReadAsByteArrayAsync().GetAwaiter().GetResult();
+            return $"Finish downloading data from {url}.Total bytes returned {responsePlayloadBytes.Length}.{Environment.NewLine}";
+
+        }
+        private async Task<string> DownloadWebsiteAsync(string url)
+        {
+            var response = await httpClient.GetAsync(url);
+            var responsePlayloadBytes =await response.Content.ReadAsByteArrayAsync();
             return $"Finish downloading data from {url}.Total bytes returned {responsePlayloadBytes.Length}.{Environment.NewLine}";
 
         }
