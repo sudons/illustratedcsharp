@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValueTaskDemo", "ValueTaskD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManualForeach", "ManualForeach\ManualForeach.csproj", "{BDF371DB-710D-43A6-8175-EFAC3563EEDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomEnumerator", "CustomEnumerator\CustomEnumerator.csproj", "{B6DF97F9-B289-40A9-80A9-50B329A36F40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,6 +169,18 @@ Global
 		{BDF371DB-710D-43A6-8175-EFAC3563EEDD}.Release|x64.Build.0 = Release|Any CPU
 		{BDF371DB-710D-43A6-8175-EFAC3563EEDD}.Release|x86.ActiveCfg = Release|Any CPU
 		{BDF371DB-710D-43A6-8175-EFAC3563EEDD}.Release|x86.Build.0 = Release|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Debug|x64.Build.0 = Debug|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Debug|x86.Build.0 = Debug|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Release|x64.ActiveCfg = Release|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Release|x64.Build.0 = Release|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Release|x86.ActiveCfg = Release|Any CPU
+		{B6DF97F9-B289-40A9-80A9-50B329A36F40}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
