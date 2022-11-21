@@ -22,11 +22,14 @@
             var count1 = Enumerable.Count(intArray);
             var firstNum1 = Enumerable.First(intArray);
 
-            var count2 = intArray.Count();
+            var count2 = intArray.Count(); 
             var firstNum2 = intArray.First();
+
+            var countOdd = intArray.Count(n => n % 2 == 1);
 
             Console.WriteLine($"Count:{count1},firstNumber:{firstNum1}");
             Console.WriteLine($"Count:{count2},firstNumber:{firstNum2}");
+            Console.WriteLine($"Count of odd numbers:{countOdd}");
 
         }
     }
