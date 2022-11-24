@@ -10,6 +10,9 @@ namespace EmployeesXMLDemo
         static void Main(string[] args)
         {
             XDocument employeeDoc = new XDocument(
+                new XDeclaration("1.0","utf-8","yes"),
+                new XComment("This is a comment"),
+                new XProcessingInstruction("xml-stylesheet",@"href=""stories.css"",type=""text/css"""),
                 new XElement("Employees",
                     new XElement("Employee",
                         new XElement("Name", "云文"),
@@ -38,6 +41,10 @@ namespace EmployeesXMLDemo
             //显示修改后的XML树
             Console.WriteLine("-----------修改树-----------");
             ShowElement(employees, "Name", "PhoneNumber");
+
+            //显示XML文档内容
+            Console.WriteLine("-----------文档源-----------");
+            Console.WriteLine(employeeDoc);
 
         }
         public static void ShowElement(IEnumerable<XElement> xElement,string name,string phoneNumber)
