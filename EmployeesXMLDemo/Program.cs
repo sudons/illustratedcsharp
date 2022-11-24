@@ -14,6 +14,8 @@ namespace EmployeesXMLDemo
                 new XComment("This is a comment"),
                 new XProcessingInstruction("xml-stylesheet",@"href=""stories.css"",type=""text/css"""),
                 new XElement("Employees",
+                    new XAttribute("color", "red"),
+                    new XAttribute("size", "large"),
                     new XElement("Employee",
                         new XElement("Name", "云文"),
                         new XElement("PhoneNumber", "15083829025")),
@@ -41,6 +43,22 @@ namespace EmployeesXMLDemo
             //显示修改后的XML树
             Console.WriteLine("-----------修改树-----------");
             ShowElement(employees, "Name", "PhoneNumber");
+
+            //显示XML文档内容
+            Console.WriteLine("-----------文档源-----------");
+            Console.WriteLine(employeeDoc);
+
+            //查看节点特性
+            Console.WriteLine("-----------获取节点特性-----------");
+            Console.WriteLine($"color is {root.Attribute("color").Value},size is {root.Attribute("size").Value}");
+
+            //移除节点属于
+            root.Attribute("color").Remove();
+            root.SetAttributeValue("size", null);
+
+            //添加或者改变节点特性
+            root.SetAttributeValue("size", "small");
+            root.SetAttributeValue("width", "narrow");
 
             //显示XML文档内容
             Console.WriteLine("-----------文档源-----------");
