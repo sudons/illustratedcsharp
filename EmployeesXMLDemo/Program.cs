@@ -17,10 +17,12 @@ namespace EmployeesXMLDemo
                     new XAttribute("color", "red"),
                     new XAttribute("size", "large"),
                     new XElement("Employee",
+                        new XElement("Age","32"),
                         new XElement("Name", "云文"),
                         new XElement("PhoneNumber", "15083829025")),
                     new XElement("Employee",
-                        new XElement("Name", "小胡"),
+                        new XElement("Age","33"),
+                        new XElement("Name", "胡翌瑄"),
                         new XElement("PhoneNumber", "13891182640"),
                         new XElement("PhoneNumber", "13891182645"))
                 )
@@ -36,6 +38,7 @@ namespace EmployeesXMLDemo
 
             //向XML树中增加节点
             root.AddFirst(new XElement("Employee",
+                        new XElement("Age","10"),
                         new XElement("Name", "云杉"),
                         new XElement("PhoneNumber", "18800000000")
                         )
@@ -63,6 +66,18 @@ namespace EmployeesXMLDemo
             //显示XML文档内容
             Console.WriteLine("-----------文档源-----------");
             Console.WriteLine(employeeDoc);
+
+            //LINQ TO XML的LINQ查询
+            Console.WriteLine("-----------LINQ TO XML和LINQ查询表达式的组合使用-----------");
+            IEnumerable<XElement> xyz = from e in employees
+                                        where e.Name.ToString().Length == 8
+                                        select e;
+
+            foreach (XElement x in xyz)
+            {
+                x.SetAttributeValue("LikeColor", "green");
+                Console.WriteLine(x);
+            }
 
         }
         public static void ShowElement(IEnumerable<XElement> xElement,string name,string phoneNumber)
