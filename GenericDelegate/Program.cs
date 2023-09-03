@@ -1,28 +1,44 @@
-﻿namespace GenericDelegate
+﻿using System;
+
+namespace GenericDelegate
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            var myDelegate = new MyDelegate<string>(Simple.PrintUpperString);
-            myDelegate.Invoke("Hi There");
+            Action<string> a1 = Say;
+            a1("ankium");
+            Action<int> a2 = Mul;
+            a2.Invoke(3);
 
-            var myDel = new Func<int, int, string>(Simple.PrintString);
-            Console.WriteLine($"Total:{myDel(13,15)}");
+            Func<double, double, double> f1 = Add;
+            var result = f1.Invoke(100.1, 200.2);
+            Console.WriteLine(result);
+
+            Func<double, double, double> f2 = (a, b) => { return a + b; };
+            var res = f2.Invoke(100.1, 200.2);
+            Console.WriteLine(res);
+            
         }
-    }
-    public delegate void MyDelegate<T>(T value);
-    public delegate TR Func<T1, T2, TR>(T1 p1, T2 p2);
-    class Simple
-    {
-        static public void PrintUpperString(string s)
+
+        static void Say(string str)
         {
-            Console.WriteLine(s.ToUpper());
+            Console.WriteLine($"Hello,{str}");
         }
-        static public string PrintString(int p1,int p2)
+
+        static void Mul(int x)
         {
-            int total = p1 + p2;
-            return total.ToString();
+            Console.WriteLine(x*100);
+        }
+
+        static int Add(int a, int b)
+        {
+            return a + b;
+        }
+
+        static double Add(double a, double b)
+        {
+            return a + b;
         }
     }
 }
