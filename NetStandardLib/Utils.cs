@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Xml;
 
 namespace NetStandardLib
 {
@@ -9,6 +11,9 @@ namespace NetStandardLib
         {
             Console.WriteLine(typeof(Dictionary<,>).Assembly.FullName);
             Console.WriteLine(typeof(SortedDictionary<,>).Assembly.FullName);
+            Console.WriteLine(typeof(Task).Assembly.FullName);
+            Console.WriteLine(typeof(Uri).Assembly.FullName);
+            Console.WriteLine(typeof(XmlWriter).Assembly.FullName);
         }
     }
 }
